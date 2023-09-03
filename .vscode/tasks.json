@@ -1,0 +1,28 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "compile glFunctions",
+            "type": "shell",
+            "command": "g++ -c glFunctions.cpp -IC:\\Users\\Carl\\Development\\SFML\\SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit\\SFML-2.5.1\\include -DSFML_STATIC"
+        },
+        {
+            "label": "compile glMath",
+            "type": "shell",
+            "command": "g++ -c glMath.cpp -IC:\\Users\\Carl\\Development\\SFML\\SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit\\SFML-2.5.1\\include -DSFML_STATIC"
+        },
+        {
+            "label": "compile main",
+            "type": "shell",
+            "command": "g++ -c main.cpp -IC:\\Users\\Carl\\Development\\SFML\\SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit\\SFML-2.5.1\\include -DSFML_STATIC"
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "dependsOn": ["compile glFunctions", "compile glMath", "compile main"],
+            "command": "g++ glFunctions.o glMath.o main.o -o a.exe -LC:\\Users\\Carl\\Development\\SFML\\SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit\\SFML-2.5.1\\lib -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lopengl32 -lfreetype -lwinmm -lgdi32"
+        }
+    ]
+}
